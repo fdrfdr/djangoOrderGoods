@@ -1,0 +1,33 @@
+{% load static %}
+
+<nav class="topbar revealator-slidedown revealator-delay1 revealator-duration5">
+    <div class="logo flex-column revealator-rotateleft revealator-delay14 revealator-duration5">
+        <img src="{% static 'main/images/logo.png' %}" alt="">
+    </div>
+    <div class="menu flex-row">
+        <a class="revealator-slideright revealator-delay5 revealator-duration5" href="{% url 'main' %}"><div class="menu-ref ">
+            Главная
+        </div>
+        </a>
+        <a class="revealator-zoomout revealator-delay11 revealator-duration5" href="{% url 'catalog' %}"><div class="menu-ref ">
+            Каталог
+        </div></a>
+        <a class="revealator-zoomin revealator-delay9 revealator-duration5" href="{% url 'cart' %}"><div class="menu-ref ">
+            Корзина
+        </div></a>
+        <a class="revealator-slideleft revealator-delay7 revealator-duration5" href="{% url 'order_view' %}"><div class="menu-ref ">
+            Данные о заказе
+        </div></a>
+    </div>
+    
+    <div class="user-panel flex-row revealator-slideleft revealator-delay3 revealator-duration5">
+        <i class="fa fa-user"></i>
+        {% if auth and auth != "" %}
+            <span class="username">{{ auth }}</span>
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login' %}">Вход</a> /
+            <a href="{% url 'signup' %}">Регистрация</a>
+        {% endif %}
+    </div>
+</nav>

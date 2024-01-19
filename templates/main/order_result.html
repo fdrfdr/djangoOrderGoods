@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+
+    Данные вашего заказа
+
+{% endblock %}
+
+{% block page_title %}
+
+    Данные вашего заказа:
+
+{% endblock %}
+
+{% block page_content %}
+    <div class="flex-row flex-center">
+        <div class="flex-column flex-center">
+            <p>Номер вашего заказа: <b>{{ order.order_num }}</b></p>
+            <p>Секретный ключ вашего заказа: <b>{{ order.order_key }}</b></p>
+        </div>
+    </div>
+{% endblock %}

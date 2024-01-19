@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+
+    Корзина
+
+{% endblock %}
+
+{% block page_title %}
+
+    Корзина
+
+{% endblock %}
+
+{% block page_content %}
+    <form class="flex-column flex-center" method="post" action="{% url 'make_order' %}">
+    {% csrf_token %}
+    <input type="hidden" name="cart_data" value="{{ cart_data }}">
+        <table class="cart-list revealator-fade revealator-delay3 revealator-duration3 revealator-once">
+            {% for product in goods %}
+
+                    <tr class="cart-list-row revealator-slideup revealator-delay5 revealator-duration5 revealator-once">
+                        <td class="revealator-slideleft revealator-delay7 revealator-duration5 revealator-once">
+                            {% if product.product.photo.url != "" %}
+                            <img class="cart-list-image"
+                                 src="{{ product.product.photo.url }}" alt="">
+                            {% else %}
+                                <img class="cart-list-image" src="{% static 'main/images/default-product.jpg' %}" alt="">
+                            {% endif %}
+                        </td>
+                        <th class="revealator-slideleft revealator-delay9 revealator-duration5 revealator-once">
+                            <a class="ref-no-decor" href="{% url 'product_by_slug' product.product.slug %}">
+                            {{ product.product.title }}
+                            </a>
+                        </th>
+                        <td class="revealator-slideleft revealator-delay11 revealator-duration5 revealator-once">{{ product.product.price }} руб.</td>
+                    </tr>
+
+            {% endfor %}
+        </table>
+    <div class="flex-row flex-center flex-gap revealator-fade revealator-duration5 revealator-delay5 revealator-once" style="padding: 20px;">
+        <div class="flex-row flex-center">
+          <span class="sum-label">Общая сумма </span>
+            <span class="sum-sum">{{ total_sum }} рублей</span>
+        </div>
+        <button type="submit" class="just-button">Оформить заказ</button>
+    </div>
+
+    </form>
+{% endblock %}

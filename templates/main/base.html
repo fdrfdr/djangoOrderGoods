@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/cart-button.css' %}">
+    <script src="https://use.fontawesome.com/bd97dbf5ae.js"></script>
+    <link rel="stylesheet" href="{% static 'main/css/fm.revealator.jquery.min.css' %}">
+    <script src="{% static 'main/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'main/js/fm.revealator.jquery.min.js' %}"></script>
+</head>
+<body>
+
+{% include 'main/menu.html' %}
+
+
+<div class="one revealator-zoomout revealator-duration5 revealator-delay3">
+    <h1 class="revealator-rotateright revealator-duration5 revealator-delay10"> {% block page_title %}{% endblock %} </h1>
+</div>
+
+<hr>
+
+<div class="page-content">
+    {% block page_content %}
+    {% endblock %}
+</div>
+
+<hr>
+
+{% include 'main/footer.html' %}
+
+</body>
+</html>

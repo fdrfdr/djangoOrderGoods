@@ -1,0 +1,466 @@
+nav{
+    width: 100%;
+
+}
+
+.page-content{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80vh;
+}
+
+.topbar{
+    background-color: black;
+    color: white !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    line-height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 40px;
+}
+
+.flex-row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.flex-column{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+i{
+    margin-top: 20px;
+}
+
+.user-panel{
+    gap: 5px;
+    padding: 10px;
+    border-radius: 40px;
+    border: 3px solid darkorange;
+    background-color: crimson;
+}
+
+.menu-ref{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    transition: transform 0.3s linear, background-color 0.3s linear;
+    font-size: 18px;
+}
+.menu-ref:hover{
+    transform: scale(1.05);
+    background-color: white;
+    color: forestgreen;
+    font-weight: 800;
+}
+
+.user-panel a {
+    text-decoration: none;
+    color: burlywood;
+    transition: transform 0.3s linear, background-color 0.3s linear;
+}
+
+.user-panel a:hover{
+    transform: scale(1.1);
+    color: white;
+}
+
+.user-panel i {
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s linear, background-color 0.3s linear;
+}
+
+.user-panel i:hover{
+    transform: scale(1.1);
+    color: white;
+}
+
+.goods{
+    gap: 15px;
+}
+
+.product{
+    text-align: center;
+    width: 300px;
+    height: 600px;
+
+    box-shadow: 0 -20px 10px -20px crimson inset, -20px 0 10px -20px crimson inset;
+    border-radius: 40px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.product:hover{
+    border-left: 10px solid red;
+}
+
+.product-title{
+    font-weight: 800;
+    width: 200px;
+}
+
+.product-image{
+    width: 250px;
+    border-radius: 60px;
+}
+
+.flex-center{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.product-price{
+    font-style: italic;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    width: 100px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 800;
+}
+
+.ref-no-decor{
+    text-decoration: none;
+    color: black;
+}
+
+.product-view{
+    gap: 20px;
+}
+
+.product-view-description{
+    width: 250px;
+    border: 3px solid black;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.product-view-image{
+    width: 400px;
+    border-radius: 40px;
+}
+
+.product-view-add-to-cart{
+    width: 100%;
+}
+
+.product-view-title{
+    width: 400px;
+    text-align: center;
+}
+
+div.table-title {
+   display: block;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+}
+
+.table-title h3 {
+   color: #fafafa;
+   font-size: 30px;
+   font-weight: 400;
+   font-style:normal;
+   font-family: "Roboto", helvetica, arial, sans-serif;
+   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+   text-transform:uppercase;
+}
+
+
+/*** Table Styles **/
+
+.cart-list {
+  background: white;
+  border-collapse: collapse;
+  margin: auto;
+  padding:5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+    width: 100%;
+    text-align: center;
+}
+
+th {
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+    text-align: center;
+}
+
+th a{
+    color: white !important;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+
+}
+
+tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+}
+
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
+
+.cart-list-image{
+    width: 50px;
+    border-radius: 20px;
+}
+
+.logo img{
+    width: 100px;
+    padding: 10px;
+}
+
+.flex-gap{
+    gap: 20px;
+}
+
+.sum-label{
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+.sum-sum{
+    background-color: crimson;
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+.just-button{
+        --background: black;
+    --text: #fff;
+    --cart: #fff;
+    --tick: var(--background);
+    position: relative;
+    border: none;
+    background: none;
+    padding: 8px 28px;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    min-width: 144px;
+    color: var(--text);
+    background: var(--background);
+    transform: scale(var(--scale, 1));
+    transition: transform 0.4s cubic-bezier(0.36, 1.01, 0.32, 1.27);
+}
+
+.just-button:hover{
+    transform: scale(1.1);
+    background-color: crimson;
+    color: white;
+}
+
+hr {
+    border: none;
+    height: 3px;
+    margin: 40px 0;
+    background-image: linear-gradient(to right, #FFF, #BFE2FF, #FFF);
+}
+hr:before,
+hr:after {
+    content: '';
+    display: inline-block;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #BFE2FF;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFF;
+}
+hr:after {
+    animation: anim-hr 1s linear infinite;
+}
+@keyframes anim-hr {
+    0% {
+        width: 40px;
+        height: 40px;
+    }
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+.one {
+  background: #FFF4ED;
+  padding: 50px 20px;
+  text-align: center;
+}
+.one h1 {
+  font-family: 'Righteous', cursive;
+  position: relative;
+  color: crimson;
+  display: inline-block;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  font-size: 3em;
+  padding: 11px 60px;
+  margin: 0;
+  line-height: 1;
+}
+.one h1:before, .one h1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  background: repeating-linear-gradient(180deg, transparent, transparent 2px, crimson 2px, crimson 4px);
+}
+.one h1:before {left: 0;}
+.one h1:after {right: 0;}
+@media (max-width: 420px) {
+  .one h1 {font-size: 2em;}
+}
+
+footer{
+    background-color: black;
+    border-radius: 40px;
+}
+
+.footer-text{
+    color: white;
+    font-weight: 800;
+
+}
+
+.text-container {
+  width: 100%;
+}
+
+.text-container h1 {
+  font-size: 120px;
+  text-transform: uppercase;
+  font-family: 'Gambetta', serif;
+  letter-spacing: -3px;
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  margin-bottom: 0.8rem;
+  color: PaleGoldenRod;
+  outline: none;
+  text-align: center;
+}
+
+.text-container h1:hover {
+  font-variation-settings: "wght" 582;
+  letter-spacing: 1px;
+}
+
+.text-container p {
+  font-size: 1.2em;
+  line-height: 150%;
+  text-align: center;
+  color: black;
+  letter-spacing: .5px;
+}
+
+.error-image{
+    height: 700px;
+}

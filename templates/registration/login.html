@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Вход
+{% endblock %}
+
+{% block page_title %}
+
+    Вход
+
+{% endblock %}
+
+{% block page_content %}
+    <form action="" method="post" class="flex-column flex-center flex-gap">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="just-button" type="submit">Вход</button>
+    </form>
+
+{% endblock %}

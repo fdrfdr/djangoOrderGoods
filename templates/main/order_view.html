@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+
+    Данные о заказе
+
+{% endblock %}
+
+{% block page_title %}
+
+    Данные о заказе
+
+{% endblock %}
+{% load static %}
+{% block page_content %}
+    <form class="flex-column flex-center order-view flex-gap revealator-zoomin revealator-duration5 revealator-delay5 revealator-once" method="post" action="">
+    {% csrf_token %}
+        <label class="revealator-slidedown revealator-duration5 revealator-delay7 revealator-once" for="order_num">Введите номер заказа:</label>
+        <input class="revealator-slideright revealator-duration9 revealator-delay9 revealator-once" type="number" name="order_num">
+        <label class="revealator-slideleft revealator-duration9 revealator-delay9 revealator-once" for="order_key">Введите ключ заказа:</label>
+        <input class="revealator-slideup revealator-duration5 revealator-delay7 revealator-once" type="text" name="order_key">
+        <button class="just-button" type="submit"> Посмотреть заказ </button>
+    </form>
+    <table class="cart-list revealator-fade revealator-delay3 revealator-duration3 revealator-once"
+           style="padding: 20px; margin-top: 40px;">
+    {% if order.processed == True%}
+    <caption style="padding: 20px;">Статус заказа: <b>Обработан</b></caption>
+    {% elif order.processed == False %}
+    <caption style="padding: 20px;">Статус заказа: <b>На рассмотрении</b></caption>
+    {% else %}
+    {% endif %}
+
+    {% if order_data %}
+        {% for data in order_data %}
+            <tr>
+            <td class="revealator-slideleft revealator-delay5 revealator-duration5 revealator-once">
+                {% if data.product.photo.url != "" %}
+                <img class="cart-list-image" src="{{ data.product.photo.url }}" alt="">
+                {% else %}
+                    <img class="cart-list-image" src="{% static 'main/images/default-product.jpg' %}" alt="">
+                {% endif %}
+            </td>
+            <th class="revealator-slideup revealator-delay7 revealator-duration5 revealator-once"><a class="ref-no-decor" href="{% url 'product_by_slug' data.product.slug %}">{{ data.product.title }}</a></th>
+            <th class="revealator-slideup revealator-delay9 revealator-duration5 revealator-once">{{ data.product.price }}</th>
+            <td class="revealator-slideup revealator-delay11 revealator-duration5 revealator-once">{{ data.quantity }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </table>
+{% endblock %}

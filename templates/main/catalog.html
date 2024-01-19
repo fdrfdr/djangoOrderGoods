@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+
+    Список товаров
+
+{% endblock %}
+
+{% block page_title %}
+
+    Каталог
+
+{% endblock %}
+
+{% block page_content %}
+    <div class="flex-row flex-center goods">
+    {% for product in goods %}
+        <a class="ref-no-decor revealator-slideup revealator-duration5 revealator-once revealator-delay5" href="{% url 'product_by_slug' product.slug %}">
+        <form class="flex-column product flex-center" method="post" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="redirect" value="{% url 'catalog' %}">
+            {% if  product.photo.url != "" %}
+            <img class="product-image revealator-slideright revealator-delay7 revealator-duration5 revealator-once"
+                 src="{{ product.photo.url }}">
+            {% else %}
+                <img class="product-image revealator-slideright revealator-delay7 revealator-duration5 revealator-once"
+                 src="{% static 'main/images/default-product.jpg' %}">
+
+            {% endif %}
+            <p class="product-title revealator-slideleft revealator-delay10 revealator-duration5 revealator-once">{{ product.title }}</p>
+            <p class="product-price revealator-slidedown revealator-delay13 revealator-duration5 revealator-once">{{ product.price }} Рублей</p>
+            {% if auth and auth != "" %}
+                {% include 'main/add_to_cart_button.html' %}
+            {% else %}
+                <button type="button" class="just-button">Авторизуйтесь</button>
+            {% endif %}
+        </form>
+        </a>
+    {% endfor %}
+    </div>
+    <script src="{% static 'main/js/cart.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+
+    {{ product.title }}
+
+{% endblock %}
+
+{% block page_title %}
+
+    {{ product.title }}
+
+{% endblock %}
+{% load static %}
+{% block page_content %}
+    <form class="flex-row flex-center product-view" method="post" action="{% url 'add_to_cart' product.id %}">
+    {% csrf_token %}
+        <input type="hidden" name="redirect" value="{% url 'product_by_slug' product.slug %}">
+        <div class="flex-column flex-center">
+             <h2 class="product-view-title revealator-slideright revealator-delay5 revealator-duration5 revealator-once">{{ product.title }}</h2>
+            {% if product.photo.url != "" %}
+            <img class="product-view-image revealator-fade revealator-delay7 revealator-duration5 revealator-once"
+                 src="{{ product.photo.url }}" alt="">
+            {% else %}
+                <img class="product-view-image revealator-fade revealator-delay7 revealator-duration5 revealator-once"
+                 src="{% static 'main/images/default-product.jpg' %}" alt="">
+            {% endif %}
+        </div>
+
+        <div class="flex-column flex-center">
+            <p class="product-view-description revealator-slideleft revealator-delay7 revealator-duration5 revealator-once">{{ product.description }}</p>
+            <p class="product-price revealator-slideup revealator-delay9 revealator-duration5 revealator-once">{{ product.price }} Рублей</p>
+        </div>
+        <div class="product-view-add-to-cart flex-column flex-center revealator-zoomin revealator-delay12 revealator-duration5 revealator-once">
+            {% if auth and auth != "" %}
+                {% include 'main/add_to_cart_button.html' %}
+            {% else %}
+                <button type="button" class="just-button">Авторизуйтесь</button>
+            {% endif %}
+        </div>
+
+    </form>
+    <script src="{% static 'main/js/cart.js' %}"></script>
+{% endblock %}
